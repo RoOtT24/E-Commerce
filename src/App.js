@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import { Route, Routes } from 'react-router-dom';
+import Products from './components/Products/Products';
+import PageNotFound from './components/PageNotfound/PageNotFound';
+import CategoryProduct from './components/CategoryProduct/CategoryProduct';
+import Details from './components/Details/Details';
+import { ProtectedRoutes } from './components/ProtectedRoutes/ProtectedRoutes';
+import { UnProtectedRoutes } from './components/UnProtectedRoutes/UnProtectedRoutes';
+import { Login } from './components/Login/login';
+import { Register } from './components/Register/Register';
+import { useState } from 'react';
+import Loader from './components/Loader/Loader';
 
 function App() {
+  const [token,setToken] = useState()
+  const [loading, setLoading] = useState(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  //  <div>
+  //  <Navbar/>
+  //  <Header/>
+  //  <div className='container'>
+
+  //  <Routes>
+  //   <Route element={<ProtectedRoutes/> }>
+  //   <Route path='/home' element={<Home/>}></Route>
+  //   <Route path='/' element={<Home/>}></Route>
+  //   <Route path='/products' element={<Products/>}></Route>
+  //   <Route path='/products/product/:id' element={<Details/>}></Route>
+  //   <Route path='/category/:name' element={<CategoryProduct/>}></Route>
+  //   <Route path='/category/:name/:id' element={<Details/>}></Route>
+  //   <Route path='*' element={<PageNotFound/>}></Route>
+  //   </Route>
+
+
+
+
+  //   <Route element={<UnProtectedRoutes/> }>
+  //   <Route to='/login' element={<Login/>}></Route>
+  //   <Route to='/register' element={<Register/>}></Route>
+  //   </Route>
+
+  //  </Routes> 
+   
+  //  </div>
+  //  </div>
+  <Loader/>
   );
 }
 

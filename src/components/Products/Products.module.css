@@ -1,0 +1,21 @@
+
+.product {
+    width:100%;
+    margin: 2rem;
+}
+
+.product h3 {
+    font-size: 1rem;
+    color: steelblue;
+}
+
+.product p {
+    text-align: center;
+    color: cornflowerblue;
+}
+.product img {
+    width: 100%;
+    height: 20%;
+    aspect-ratio: 3/5;
+    object-fit: contain;
+}

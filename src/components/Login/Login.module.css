@@ -1,0 +1,57 @@
+.login {
+    width: 50%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    }
+    
+    .imgReg {
+        width: 5rem;
+        height: 5rem;  
+        margin-top: 1rem;
+    }
+    
+    .forget p{
+        color: lightskyblue;
+        text-shadow: 2px 2px 3px #000;
+    }
+    
+    .forget p:hover{
+        color: lightcoral;
+    }
+    
+    form div input {
+        background-color: #aeccc6 !important;
+        height: max-content;
+        font-size: 1rem ;
+        font-weight: 900;
+    }
+    
+    #btn {
+        background-color: #25745c !important;
+        border-color: #25745c !important;
+        color: #fffdef !important;
+    }
+    
+    #btn:hover {
+        background-color: #fffdef !important;
+        color: #25745c !important;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .imgReg {
+            width: 2rem;
+            height: 2rem;  
+        }
+    
+        form div input {
+            font-size: 10px;
+        }
+    
+        .login {
+            width: 80%;
+        }
+    
+        #btn {
+            margin-bottom: 1rem !important;
+        }
+    }
