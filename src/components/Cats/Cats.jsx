@@ -16,11 +16,14 @@ export default function Cats() {
   }, []);
   return (
   <div className={styles.cat}>
-    <h2>All Categories</h2>
+    <div className='container'>
+
     <div className={styles.cats}>
     {
-      cats.map((cat,index)=><Link to={`/category/${cat}`} className='btn btn-primary' key={index}>{cat}</Link>)
+      cats.map((cat,index)=>
+      <Link to={`/category/${cat}`} id={styles.catLink} className={`${styles.catLink} `} key={index}>{cat}</Link>)
     }
+    </div>
     </div>
     </div>
   )

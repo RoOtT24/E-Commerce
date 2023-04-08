@@ -1,29 +1,37 @@
 /* Add a black background color to the top navigation */
-nav {
-    background-color: white;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+.nav {
+    background-color: #272343;
+    /* padding-top: 0 !important;
+    padding-bottom: 0 !important; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     height: 8vh;
 }
 
+.myContainer {
+    height: 100%;
+}
+
 .topnav {
-    overflow: hidden;
-    width: 60%;
-    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
 }
 
 .flex {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 .logoDiv {
     width: 10%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .logo {
@@ -35,29 +43,32 @@ nav {
 
 /* Style the links inside the navigation bar */
 .topnav #Link {
-    float: left;
-    display: block;
+   text-decoration: none;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    border-radius: 50%;
+    padding: 2%;
+    height: 100%;
 }
 
 .logout {
     color: red !important;
+    text-shadow: #ddd;
 }
 
 /* Change the color of links on hover */
 .topnav #Link:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #edb1f1;
+    color: #0a58ca;
+    font-weight: 1000 !important;
+    /* color: black; */
 }
 
 /* Add an active class to highlight the current page */
-.topnav #Link.active {
-    background-color: #04AA6D;
-    color: white;
+#Link.active {
+    /* background-color: #04AA6D; */
+    color: green;
+    font-weight: 900;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -80,7 +91,7 @@ nav {
     }
 
     .topnav #Link {
-        background-color: hsl(180, 24%, 20%);
+        /* background-color: hsl(180, 24%, 20%); */
         z-index: 5;
         margin-left: 200px;
     }

@@ -40,16 +40,15 @@ const Navbar = ({ token, setToken, setLoading }) => {
   }, []);
   return (
     <nav className={styles.nav}>
-      <div className="container">
+      <div className={`container ${styles.myContainer}`}>
         <div className={styles.flex}>
-          <div className={styles.logoDiv}>
+          <div className={`${styles.logoDiv}`}>
             <Link className="navbar-brand" to="/">
              <h3>E Commerce</h3>
             </Link>
           </div>
-          <div className="w-100">
             <div className={styles.topnav} id="myTopnav">
-              {token ? (
+              {!token ? (
                 <>
                   <Link
                     id={styles.Link}
@@ -58,19 +57,19 @@ const Navbar = ({ token, setToken, setLoading }) => {
                     className={styles.active}
                     name={"nav-item"}
                   >
-                    Trending
+                    Home
                   </Link>
                   <Link
                     id={styles.Link}
-                    to="/tv"
+                    to="/products"
                     onClick={linkStyle}
                     name={"nav-item"}
                   >
-                    Tv Shows
+                    Products
                   </Link>
                   <Link
                     id={styles.Link}
-                    to="/movies"
+                    to="/"
                     onClick={linkStyle}
                     name={"nav-item"}
                   >
@@ -118,7 +117,6 @@ const Navbar = ({ token, setToken, setLoading }) => {
                 style={{ float: "right", marginTop: "5px" }}
               />
             </Link>
-        </div>
       </div>
     </nav>
   );

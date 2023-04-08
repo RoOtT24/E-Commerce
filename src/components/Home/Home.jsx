@@ -5,8 +5,9 @@ import Cats from '../Cats/Cats'
 export default function Home() {
   return (
     <div>
-        <About/>
         <Cats/>
+        
+        <About/>
     </div>
   )
 }

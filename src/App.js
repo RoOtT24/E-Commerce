@@ -1,4 +1,3 @@
-
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
@@ -20,35 +19,33 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   return (
-  //  <div>
-  //  <Navbar/>
-  //  <Header/>
-  //  <div className='container'>
+   <div style={{height:'100vh'}}>
+   <Navbar/>
+   {/* <Header/> */}
 
-  //  <Routes>
-  //   <Route element={<ProtectedRoutes/> }>
-  //   <Route path='/home' element={<Home/>}></Route>
-  //   <Route path='/' element={<Home/>}></Route>
-  //   <Route path='/products' element={<Products/>}></Route>
-  //   <Route path='/products/product/:id' element={<Details/>}></Route>
-  //   <Route path='/category/:name' element={<CategoryProduct/>}></Route>
-  //   <Route path='/category/:name/:id' element={<Details/>}></Route>
-  //   <Route path='*' element={<PageNotFound/>}></Route>
-  //   </Route>
-
+   <Routes>
+    {/* <Route element={<ProtectedRoutes/> }> */}
+    <Route path='/home' element={<Home/>}></Route>
+    <Route path='/' element={<Home/>}></Route>
+    <Route path='/products' element={<Products/>}></Route>
+    <Route path='/products/product/:id' element={<Details/>}></Route>
+    <Route path='/category/:name' element={<CategoryProduct/>}></Route>
+    <Route path='/category/:name/:id' element={<Details/>}></Route>
+    <Route path='*' element={<PageNotFound/>}></Route>
+    {/* </Route> */}
 
 
 
-  //   <Route element={<UnProtectedRoutes/> }>
-  //   <Route to='/login' element={<Login/>}></Route>
-  //   <Route to='/register' element={<Register/>}></Route>
-  //   </Route>
 
-  //  </Routes> 
+    {/* <Route element={<UnProtectedRoutes/> }> */}
+    <Route to='/login' element={<Login/>}></Route>
+    <Route to='/register' element={<Register/>}></Route>
+    {/* </Route> */}
+
+   </Routes> 
    
-  //  </div>
-  //  </div>
-  <Loader/>
+   </div>
+  // <Loader/>
   );
 }
 
