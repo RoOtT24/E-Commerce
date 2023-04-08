@@ -1,13 +1,13 @@
 import React from 'react'
-import About from '../About/About'
 import Cats from '../Cats/Cats'
+import Slider from '../Slider/Slider'
 
 export default function Home() {
   return (
     <div>
         <Cats/>
         
-        <About/>
+        <Slider/>
     </div>
   )
 }

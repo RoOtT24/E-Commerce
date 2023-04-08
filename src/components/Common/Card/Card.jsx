@@ -7,7 +7,9 @@ const Card = ({ product }) => {
       <div className={styles.container}>
         <div
           className={styles.top}
-          style={{ background: `url(${product.image}) no-repeat center center` }}
+          style={{
+            background: `url(${product.image}) no-repeat center center`,
+          }}
         />
         <div className={styles.bottom}>
           <div className={styles.left}>
@@ -16,7 +18,7 @@ const Card = ({ product }) => {
               <p>${product.price}</p>
             </div>
             <div className={styles.buy}>
-              <i className="fa-regular fa-cart-shopping fa-shake"></i>
+              <i className="fa-solid fa-cart-shopping" id={styles.shopping}></i>
             </div>
           </div>
           <div className={styles.right}>
@@ -28,14 +30,14 @@ const Card = ({ product }) => {
               <p>Added to your cart</p>
             </div>
             <div className={styles.remove}>
-              <i className="fa-solid fa-xmark">clear</i>
+              <i className="fa-solid fa-xmark" id={styles.remove}>clear</i>
             </div>
           </div>
         </div>
       </div>
       <div className={styles.inside}>
         <div className={styles.icon}>
-          <i className="fa-regular fa-circle-info">info_outline</i>
+          <i className="fa-solid fa-circle-info" id={styles.info}>info_outline</i>
         </div>
         <div className={styles.contents}>
           <table>

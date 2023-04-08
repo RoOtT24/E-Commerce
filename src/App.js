@@ -13,6 +13,9 @@ import { Login } from './components/Login/login';
 import { Register } from './components/Register/Register';
 import { useState } from 'react';
 import Loader from './components/Loader/Loader';
+import Footer from './components/Footer/Footer';
+import About from './components/About/About';
+import Slider from './components/Slider/Slider';
 
 function App() {
   const [token,setToken] = useState()
@@ -28,6 +31,7 @@ function App() {
     <Route path='/home' element={<Home/>}></Route>
     <Route path='/' element={<Home/>}></Route>
     <Route path='/products' element={<Products/>}></Route>
+    <Route path='/about' element={<About/>}></Route>
     <Route path='/products/product/:id' element={<Details/>}></Route>
     <Route path='/category/:name' element={<CategoryProduct/>}></Route>
     <Route path='/category/:name/:id' element={<Details/>}></Route>
@@ -43,10 +47,11 @@ function App() {
     {/* </Route> */}
 
    </Routes> 
-   
+   <Footer/>
    </div>
   // <Loader/>
   );
 }
 
 export default App;
+

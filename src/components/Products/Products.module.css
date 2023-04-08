@@ -2,15 +2,7 @@
     height: calc(100vh,max-content);
 }
 
-.input {
-    height: 4vh;
-    border-radius: 6%;
-    border-color: transparent;
-    width: 20vw;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
+
 /* 
 .product {
     width:100%;

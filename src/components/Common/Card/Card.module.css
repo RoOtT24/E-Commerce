@@ -64,6 +64,9 @@
 }
 
 .wrapper .container .bottom .left .buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: right;
   width: calc(30% - 2px);
   height: 100%;
@@ -72,7 +75,7 @@
   border-left: solid thin rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .container .bottom .left .buy i {
+#shopping {
   font-size: 30px;
   padding: 30px;
   color: #254053;
@@ -131,11 +134,11 @@
   background: #9B2847;
 }
 
-.wrapper .container .bottom .right .remove:hover i {
+.wrapper .container .bottom .right .remove:hover #remove {
   transform: translateY(5px);
 }
 
-.wrapper .container .bottom .right .remove i {
+#remove {
   transition: transform 0.5s;
   font-size: 30px;
   padding: 30px;
@@ -167,6 +170,10 @@
   top: 85px;
   color: white;
   opacity: 1;
+}
+
+.icon #info {
+  font-size: 25px;
 }
 
 .inside:hover {

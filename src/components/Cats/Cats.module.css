@@ -5,7 +5,7 @@ h2 {
 
 .cat {
     /* margin-top: 1rem; */
-    position: absolute;
+    position: relative;
     background-color: #27296d;
     width: 100vw;
     height: 6vh;

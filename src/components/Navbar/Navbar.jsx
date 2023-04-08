@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import cookie from "react-cookies";
+import { forEach } from "lodash";
 
 
 const Navbar = ({ token, setToken, setLoading }) => {
@@ -32,10 +33,12 @@ const Navbar = ({ token, setToken, setLoading }) => {
        arr[i].className = "";
     }
     e.target.className = styles.active;
+    if(e.target.textContent.toLowerCase() === 'e commerce'){
+     arr[0].className = styles.active;
+    }
   };
 
   useEffect(() => {
-    console.log(window.innerWidth)
    myFunction()
   }, []);
   return (
@@ -43,7 +46,7 @@ const Navbar = ({ token, setToken, setLoading }) => {
       <div className={`container ${styles.myContainer}`}>
         <div className={styles.flex}>
           <div className={`${styles.logoDiv}`}>
-            <Link className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/" onClick={linkStyle}>
              <h3>E Commerce</h3>
             </Link>
           </div>
