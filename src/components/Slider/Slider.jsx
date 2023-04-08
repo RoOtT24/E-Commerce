@@ -12,15 +12,17 @@ const Slider = () => {
   // Thumbnail image controls
   const currentSlide = (n)=> {
     setSlideNum(n+1);
-    showSlides(n+1);
   }
 
   // Next/previous controls
   const plusSlides = (n)=> {
     setSlideNum(slideNum+n);
-    showSlides(slideNum+n);
   }
 
+  const autoSlider = async()=> {
+    // while(true)
+    plusSlides(1);
+  }
 
   const showSlides = (n)=>{
     const slides = document.getElementsByName("mySlides");
@@ -35,20 +37,23 @@ const Slider = () => {
     for (let i = 0; i < active.length; i++) {
       active[i] = false;
     }
-    console.log("n = ",n)
      active[n-1] = true ;
-    //  setTimeout(plusSlides(1),2000);
+     
   }
 
 const getProducts = async ()=>{
   const {data} = await axios.get('https://fakestoreapi.com/products?limit=5')
   setProducts(data)
 }
+setInterval(()=>{autoSlider()},3000) ;
+
   useEffect(() => {
    getProducts();
-   showSlides(slideNum); 
   }, []);
-  
+  useEffect(()=>{
+    showSlides(slideNum);
+
+  } ,[slideNum])
   return (
     <>
     <Link className={styles.prev} onClick={()=>{plusSlides(-1)}}>
