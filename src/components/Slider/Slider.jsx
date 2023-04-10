@@ -1,94 +1,63 @@
 import React, { useEffect, useState } from "react";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+// Default theme
+import "@splidejs/react-splide/css";
+// or other themes
+import "@splidejs/react-splide/css/skyblue";
+import "@splidejs/react-splide/css/sea-green";
+// or only core styles
+import "@splidejs/react-splide/css/core";
+// my styles
 import styles from "./Slider.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+//
+//
+//
+
 const Slider = () => {
-  const navigate = useNavigate()
-  const [slideNum,setSlideNum] = useState(1)
-  const [products,setProducts] = useState([])
-  const [active,setActive] = useState([false,false,false,false,false])
 
-  // Thumbnail image controls
-  const currentSlide = (n)=> {
-    setSlideNum(n+1);
-  }
+  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
 
-  // Next/previous controls
-  const plusSlides = (n)=> {
-    setSlideNum(slideNum+n);
-  }
-
-  const autoSlider = async()=> {
-    // while(true)
-    plusSlides(1);
-  }
-
-  const showSlides = (n)=>{
-    const slides = document.getElementsByName("mySlides");
-    if(n > slides.length){
-      setSlideNum(1);
-      n=1;
-    }
-    else if(n < 1){
-      setSlideNum(slides.length)
-      n = slides.length;
-    }
-    for (let i = 0; i < active.length; i++) {
-      active[i] = false;
-    }
-     active[n-1] = true ;
-     
-  }
-
-const getProducts = async ()=>{
-  const {data} = await axios.get('https://fakestoreapi.com/products?limit=5')
-  setProducts(data)
-}
-setInterval(()=>{autoSlider()},3000) ;
+  const getProducts = async () => {
+    const { data } = await axios.get(
+      "https://fakestoreapi.com/products?limit=6"
+    );
+    setProducts(data);
+  };
 
   useEffect(() => {
-   getProducts();
+    getProducts();
   }, []);
-  useEffect(()=>{
-    showSlides(slideNum);
-
-  } ,[slideNum])
+  const options = {
+    type: "loop",
+    autoplay:true,
+    pauseOnHover : false,
+   
+  };
   return (
-    <>
-    <Link className={styles.prev} onClick={()=>{plusSlides(-1)}}>
-        ❮
-      </Link>
-      <div className={styles.slider}>
-        {products?.map( (product, index)=> {
-          return <div key={index} className={styles.slideshowContainer}>
-          {/* Full-width images with number and caption text */}
-          <div className={`${styles.mySlides} ${styles.fade}`} name={"mySlides"} style={{display:active[index]?'block':'none'}}>
-            <div className={styles.numberText}>{index+1} / 5</div>
-            <div className="d-flex flex-column align-items-center">
-            <img src={product.image} style={{ height:'60vh', objectFit:'contain', cursor:'pointer'}} onClick={()=>{
-            navigate('/products')}}/>
-            <div className={styles.text}>{product.title}</div>
-            </div>
-          </div>
-          
-        </div>
-        } )}
-      </div>
-      {/* Next and previous buttons */}
-      
-      <Link className={styles.next} onClick={()=>{plusSlides(1)}}>
-        ❯
-      </Link>
-
-      <br />
-      {/* The dots/circles */}
-      <div style={{ textAlign: "center" }}>
-        {products.map( (product,index)=>
-         <span key={index} className={active[index]?`${styles.dot} ${styles.active}`:`${styles.dot}`} onClick={()=>{currentSlide(index)}} name='dot'/> )}
-      </div>
-    </>
+   <>
+{products.length?<Splide options={options} hasTrack={ false }>
+  <SplideTrack>
+    {products.map( (product, index)=>
+  <SplideSlide
+            key={index}
+            className="d-flex justify-content-center align-items-center flex-column"
+          >
+            <div className="card py-3"  style={{backgroundColor:'powderblue'}}>
+    <img src={product.image} alt={product.title} className={styles.img} onClick={()=>{
+            navigate('/products')}}/></div>
+            <h4 className="text-center mt-5">{product.title}</h4>
+  </SplideSlide>
+ )}
+  </SplideTrack>
+  
+</Splide>:''}
+</>
   );
-};
+    }
+
 
 export default Slider;
